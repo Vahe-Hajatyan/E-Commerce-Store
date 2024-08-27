@@ -25,6 +25,18 @@ export default function RootLayout({
     <Provider store={store}>
       <SearchContext.Provider value={{ searchQuery, setSearchQuery }}>
         <html lang="en">
+          <head>
+            <title>My Application</title>
+            <meta
+              name="description"
+              content="This is a description of my application."
+            />
+            <meta
+              name="viewport"
+              content="width=device-width, initial-scale=1"
+            />
+            <link rel="icon" href="/favicon.ico" />
+          </head>
           <body>
             <PersistGate loading={'loading...'} persistor={persistor}>
               <Header onSearch={setSearchQuery} />

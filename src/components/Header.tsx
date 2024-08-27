@@ -5,7 +5,7 @@ import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 
 interface HeaderProps {
-  onSearch: (query: string) => void;
+  onSearch?: (query: string) => void;
 }
 
 function Header({ onSearch }: HeaderProps) {
@@ -16,7 +16,9 @@ function Header({ onSearch }: HeaderProps) {
   const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
     const query = event.target.value;
     setSearch(query);
-    onSearch(query);
+    if (onSearch){
+      onSearch(query);
+    }
   };
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
