@@ -35,7 +35,7 @@ export default function RootLayout({
             />
             <link
               rel="canonical"
-              href="https://E-Commerce-Store.vercel.app"
+              href="https://e-commerce-store-nu-one.vercel.app"
             />
 
             <meta property="og:title" content="product page" />
@@ -45,9 +45,9 @@ export default function RootLayout({
             />
             {/* <meta
               property="og:image"
-              content="https://yourdomain.com/cart-og-image.jpg" // i don't have an image :(
+              content="" // i don't have an image :(
             /> */}
-            <meta property="og:url" content="https://E-Commerce-Store.vercel.app" />
+            <meta property="og:url" content="https://e-commerce-store-nu-one.vercel.app" />
             <meta property="og:type" content="website" />
 
             <meta name="twitter:card" content="summary_large_image" />
@@ -58,7 +58,7 @@ export default function RootLayout({
             />
             {/* <meta
               name="twitter:image"
-              content="https://yourdomain.com/cart-twitter-card.jpg" // i don't have an image :(
+              content="" // i don't have an image :(
             /> */}
           </head>
           <body>
