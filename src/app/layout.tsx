@@ -26,16 +26,40 @@ export default function RootLayout({
       <SearchContext.Provider value={{ searchQuery, setSearchQuery }}>
         <html lang="en">
           <head>
-            <title>My Application</title>
-            <meta
-              name="description"
-              content="This is a description of my application."
-            />
+            <title>Product Page</title>
+            <meta name="description" content="Manage your cart items here." />
+            <meta name="keywords" content="cart, ecommerce, shopping" />
             <meta
               name="viewport"
               content="width=device-width, initial-scale=1"
             />
-            <link rel="icon" href="/favicon.ico" />
+            <link
+              rel="canonical"
+              href="https://E-Commerce-Store.vercel.app"
+            />
+
+            <meta property="og:title" content="product page" />
+            <meta
+              property="og:description"
+              content="Manage your cart items here."
+            />
+            {/* <meta
+              property="og:image"
+              content="https://yourdomain.com/cart-og-image.jpg" // i don't have an image :(
+            /> */}
+            <meta property="og:url" content="https://E-Commerce-Store.vercel.app" />
+            <meta property="og:type" content="website" />
+
+            <meta name="twitter:card" content="summary_large_image" />
+            <meta name="twitter:title" content="product Page" />
+            <meta
+              name="twitter:description"
+              content="Manage your cart items here."
+            />
+            {/* <meta
+              name="twitter:image"
+              content="https://yourdomain.com/cart-twitter-card.jpg" // i don't have an image :(
+            /> */}
           </head>
           <body>
             <PersistGate loading={'loading...'} persistor={persistor}>
