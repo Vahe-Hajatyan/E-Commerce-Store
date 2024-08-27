@@ -1,5 +1,5 @@
 'use client';
-
+import React from 'react';
 import { useContext, useLayoutEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState, AppDispatch } from '../redux/store';
@@ -76,9 +76,7 @@ const HomePage = () => {
   return (
     <div>
       <div className="my-4 ml-4">
-        <label htmlFor="sort" className="mr-2">
-          Sort by:
-        </label>
+        <label htmlFor="sort">Sort by:</label>
         <select
           id="sort"
           onChange={handleSortChange}

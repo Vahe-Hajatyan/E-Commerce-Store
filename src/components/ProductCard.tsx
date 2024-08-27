@@ -14,12 +14,12 @@ interface ProductCardProps {
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({
-  id,
-  title,
-  thumbnailUrl,
-  description,
-  price,
-  rating,
+  id = 0,
+  title = 'Default Title',
+  thumbnailUrl = '',
+  description = 'Default Description',
+  price = 'N/A',
+  rating = 0,
 }) => {
   const dispatch = useDispatch<AppDispatch>();
 
@@ -37,11 +37,11 @@ const ProductCard: React.FC<ProductCardProps> = ({
   console.log(truncatedDescription);
 
   let formattedPrice = 'Price Unavailable';
-  if (price !== null && price !== undefined && !isNaN(price)) {
+  if (price !== null && price !== undefined && !isNaN(price as number)) {
     formattedPrice = new Intl.NumberFormat('en-US', {
       style: 'currency',
       currency: 'USD',
-    }).format(price);
+    }).format(price as number);
   }
 
   const validRating = Math.min(Math.max(rating, 0), 5);

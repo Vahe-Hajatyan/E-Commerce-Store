@@ -1,5 +1,5 @@
 'use client';
-
+import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { AppDispatch } from '../../redux/store';
 import { removeFromCart } from '../../redux/cartSlice';
@@ -32,7 +32,9 @@ const CartPage = () => {
               />
               <h2 className="text-lg font-bold">{item.title}</h2>
               <p className="text-green-500 font-bold">
-                {item.price !== null && item.price !== undefined && !isNaN(item.price)
+                {item.price !== null &&
+                item.price !== undefined &&
+                !isNaN(item.price)
                   ? new Intl.NumberFormat('en-US', {
                       style: 'currency',
                       currency: 'USD',
