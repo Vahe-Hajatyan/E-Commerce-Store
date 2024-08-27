@@ -29,8 +29,10 @@ const HomePage = () => {
   const productsState = useSelector((state: RootState) => state.product);
 
   useLayoutEffect(() => {
-    dispatch(getProducts());
-  }, [dispatch]);
+    if (productsState.products.length === 0) {
+      dispatch(getProducts());
+    }
+  }, [productsState.products, dispatch]);
 
   const filteredProducts = productsState.products.filter((product: Product) =>
     product.title?.toLowerCase().includes(searchQuery.toLowerCase())

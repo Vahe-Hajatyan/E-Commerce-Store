@@ -1,5 +1,5 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch } from '../redux/store';
 import { addToCart } from '../redux/cartSlice';
 import Image from 'next/image';
@@ -23,18 +23,22 @@ const ProductCard: React.FC<ProductCardProps> = ({
 }) => {
   const dispatch = useDispatch<AppDispatch>();
 
+  const cartItems = useSelector((state: any) => state.cart.items);
+
+  const isInCart = cartItems.some((item: any) => item.id === id);
+
   const handleAddToCart = () => {
-    dispatch(
-      addToCart({ id, title, thumbnailUrl, description, price, rating })
-    );
+    if (!isInCart) {
+      dispatch(
+        addToCart({ id, title, thumbnailUrl, description, price, rating })
+      );
+    }
   };
 
   const truncatedDescription =
     description?.length > 100
       ? description.substring(0, 97) + '...'
       : description;
-
-  console.log(truncatedDescription);
 
   let formattedPrice = 'Price Unavailable';
   if (price !== null && price !== undefined && !isNaN(price as number)) {
@@ -62,9 +66,10 @@ const ProductCard: React.FC<ProductCardProps> = ({
       <p>{'⭐'.repeat(validRating)}</p>
       <button
         onClick={handleAddToCart}
-        className="bg-blue-500 text-white py-2 px-4 rounded mt-4"
+        className={`py-2 px-4 rounded mt-4 ${isInCart ? 'bg-gray-500' : 'bg-blue-500'} text-white`}
+        disabled={isInCart} 
       >
-        Add to Cart
+        {isInCart ? 'In Cart' : 'Add to Cart'}
       </button>
     </div>
   );
